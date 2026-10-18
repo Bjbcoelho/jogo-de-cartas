@@ -1,0 +1,192 @@
+{
+  "decks": [
+    {
+      "id": "marciano",
+      "nome": "Deck Marciano",
+      "animacao": "marciano",
+      "descricao": "Robôs, calor extremo e ferro oxidado. Fusões com o Núcleo Vulcânico e a Carapaça.",
+      "principal": [
+        {
+          "id": "monstro_rover_de_prospeccao",
+          "copias": 3
+        },
+        {
+          "id": "monstro_drone_de_reconhecimento",
+          "copias": 3
+        },
+        {
+          "id": "monstro_criatura_de_magma_subterranea",
+          "copias": 3
+        },
+        {
+          "id": "monstro_cientista_humano_marciano",
+          "copias": 3
+        },
+        {
+          "id": "monstro_escavadeira_autonoma",
+          "copias": 3
+        },
+        {
+          "id": "monstro_mineradora_de_ferro",
+          "copias": 2
+        },
+        {
+          "id": "monstro_geologo_marciano",
+          "copias": 3
+        },
+        {
+          "id": "magia_nucleo_vulcanico_marciano",
+          "copias": 3
+        },
+        {
+          "id": "equip_carapaca_de_ferro_oxidado",
+          "copias": 2
+        },
+        {
+          "id": "campo_cratera_de_marte",
+          "copias": 2
+        },
+        {
+          "id": "magia_tempestade_de_poeira_vermelha",
+          "copias": 2
+        },
+        {
+          "id": "equip_lamina_de_hematita",
+          "copias": 2
+        },
+        {
+          "id": "equip_blindagem_de_magnetita",
+          "copias": 1
+        },
+        {
+          "id": "magia_painel_solar_de_reserva",
+          "copias": 1
+        },
+        {
+          "id": "magia_varredura_de_satelite",
+          "copias": 2
+        },
+        {
+          "id": "magia_erupcao_de_olympus_mons",
+          "copias": 2
+        },
+        {
+          "id": "magia_reciclagem_de_sucata",
+          "copias": 2
+        },
+        {
+          "id": "armadilha_tempestade_de_areia",
+          "copias": 1
+        }
+      ],
+      "extra": [
+        "fusao_automato_de_ferro_vermelho",
+        "fusao_tita_de_plasma_das_cavernas",
+        "fusao_central_de_comando_orbital_marciana",
+        "fusao_enxame_escarlate",
+        "fusao_sentinela_de_magma_blindado",
+        "fusao_pesquisador_blindado_ares",
+        "fusao_perfuratriz_de_plasma",
+        "fusao_dragao_de_cinzas_de_olympus",
+        "fusao_guardiao_da_cratera_vermelha",
+        "fusao_fenix_de_ferrugem"
+      ]
+    },
+    {
+      "id": "humanos",
+      "nome": "Deck Humanos",
+      "animacao": "humanos",
+      "descricao": "Infantaria tática, engenharia militar e exoesqueletos. Tudo baseado em tecnologia.",
+      "principal": [
+        {
+          "id": "monstro_infantaria_de_exploracao",
+          "copias": 3
+        },
+        {
+          "id": "monstro_engenheiro_de_campo",
+          "copias": 3
+        },
+        {
+          "id": "monstro_piloto_de_combate",
+          "copias": 3
+        },
+        {
+          "id": "monstro_especialista_em_comunicacao",
+          "copias": 3
+        },
+        {
+          "id": "monstro_atirador_de_elite",
+          "copias": 3
+        },
+        {
+          "id": "monstro_medico_de_combate",
+          "copias": 3
+        },
+        {
+          "id": "equip_exoesqueleto_de_combate_pesado",
+          "copias": 3
+        },
+        {
+          "id": "equip_modulo_de_armas_modulares",
+          "copias": 3
+        },
+        {
+          "id": "campo_base_de_lancamento_orbital",
+          "copias": 2
+        },
+        {
+          "id": "magia_reparo_emergencial",
+          "copias": 2
+        },
+        {
+          "id": "equip_colete_balistico_reforcado",
+          "copias": 1
+        },
+        {
+          "id": "equip_mira_termica",
+          "copias": 1
+        },
+        {
+          "id": "magia_suprimento_aereo",
+          "copias": 2
+        },
+        {
+          "id": "magia_kit_de_primeiros_socorros",
+          "copias": 1
+        },
+        {
+          "id": "magia_bombardeio_de_apoio_orbital",
+          "copias": 2
+        },
+        {
+          "id": "armadilha_campo_minado",
+          "copias": 1
+        },
+        {
+          "id": "armadilha_emboscada_de_esquadrao",
+          "copias": 1
+        },
+        {
+          "id": "magia_chamado_de_reforcos",
+          "copias": 2
+        },
+        {
+          "id": "armadilha_barreira_de_energia",
+          "copias": 1
+        }
+      ],
+      "extra": [
+        "fusao_soldado_de_assalto_pesado",
+        "fusao_mech_de_combate_tatico",
+        "fusao_esquadrao_de_operacoes_especiais",
+        "fusao_posto_de_comando_movel",
+        "fusao_franco_atirador_modular",
+        "fusao_mech_de_lancamento_orbital",
+        "fusao_unidade_medica_blindada",
+        "fusao_comandante_alfa_exo",
+        "fusao_legiao_de_elite",
+        "fusao_veterano_de_guerra"
+      ]
+    }
+  ]
+}

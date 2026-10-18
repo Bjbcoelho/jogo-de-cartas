@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real Battle Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Aviso para quem abriu o arquivo com duplo clique (endereço file://): os módulos JS não funcionam assim.
+       Este script é "clássico" (não é módulo), por isso roda mesmo em file://. -->
+  <div id="aviso-arquivo" class="oculto">
+    <div class="caixa-menu">
+      <h2>Quase lá!</h2>
+      <p>O jogo não pode ser aberto com duplo clique no arquivo. Abra por um servidor local:</p>
+      <ol>
+        <li>Abra o terminal (cmd) <b>dentro da pasta do jogo</b>.</li>
+        <li>Rode: <code>python -m http.server 8000</code> (ou <code>py -m http.server 8000</code>)</li>
+        <li>No navegador, abra <code>http://localhost:8000</code></li>
+      </ol>
+    </div>
+  </div>
+  <script>
+    if (location.protocol === 'file:') document.getElementById('aviso-arquivo').classList.remove('oculto');
+  </script>
+
+  <!-- ===================== TELA DE TÍTULO ===================== -->
+  <section id="tela-titulo" class="tela">
+    <div class="cartas-fantasma" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="titulo-centro">
+      <div class="logo">
+        <span class="logo-pequeno">Duelo de Evolução</span>
+        <h1>REAL<br>BATTLE<br>CARD</h1>
+        <span class="logo-lema">Evolua. Funda. Vença.</span>
+      </div>
+      <p id="pressione" class="pressione oculto">Clique ou pressione qualquer tecla para começar</p>
+      <p id="carregando" class="pressione">Carregando cartas…</p>
+      <p id="erro-carga" class="erro-carga oculto">
+        Não consegui carregar as cartas. Abra o jogo por um servidor local:<br>
+        <code>python -m http.server 8000</code> e acesse <code>http://localhost:8000</code>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== MENU PRINCIPAL ===================== -->
+  <section id="tela-menu" class="tela">
+    <div class="menu-coluna">
+      <div class="logo-menu">REAL BATTLE CARD</div>
+      <nav class="lista-menu" aria-label="Menu principal">
+        <button class="menu-item" data-acao="historia"><span class="rombo">◆</span>Modo História</button>
+        <button class="menu-item" data-acao="ia"><span class="rombo">◆</span>Duelo contra o Computador</button>
+        <button class="menu-item" data-acao="local"><span class="rombo">◆</span>Duelo Local (2 jogadores)</button>
+        <button class="menu-item" data-acao="colecao"><span class="rombo">◆</span>Coleção de Cartas</button>
+        <button class="menu-item" data-acao="regras"><span class="rombo">◆</span>Como Jogar</button>
+        <button class="menu-item" data-acao="opcoes"><span class="rombo">◆</span>Opções</button>
+      </nav>
+      <p class="dica-menu">↑ ↓ para escolher · Enter para confirmar · Esc para voltar</p>
+    </div>
+    <div class="vitrine-area" aria-hidden="true">
+      <div id="vitrine" class="vitrine"></div>
+    </div>
+  </section>
+
+  <!-- ===================== MODO HISTÓRIA ===================== -->
+  <section id="tela-historia" class="tela">
+    <header class="tela-topo">
+      <button class="btn-voltar" data-destino="tela-menu">← Voltar</button>
+      <h2 id="historia-titulo">Modo História</h2>
+      <span id="historia-contagem" class="contagem"></span>
+    </header>
+    <div class="historia-corpo">
+      <ol id="historia-lista" class="historia-lista" aria-label="Fases"></ol>
+      <article id="historia-detalhe" class="historia-detalhe"></article>
+    </div>
+  </section>
+
+  <!-- ===================== COLEÇÃO DE CARTAS ===================== -->
+  <section id="tela-colecao" class="tela">
+    <header class="tela-topo">
+      <button class="btn-voltar" data-destino="tela-menu">← Voltar</button>
+      <h2>Coleção de Cartas</h2>
+      <button id="btn-layout" class="btn-voltar" title="Alterna entre o visual novo (arte em destaque) e o clássico">Visual: Novo</button>
+      <span id="colecao-contagem" class="contagem"></span>
+    </header>
+    <div id="colecao-filtros" class="filtros" role="tablist"></div>
+    <div class="colecao-corpo">
+      <div id="colecao-grade" class="grade-colecao"></div>
+      <aside id="colecao-detalhes" class="painel-detalhes"><p class="vazio">Passe o mouse (ou clique) numa carta para ver os detalhes.</p></aside>
+    </div>
+  </section>
+
+  <!-- ===================== COMO JOGAR ===================== -->
+  <section id="tela-regras" class="tela">
+    <header class="tela-topo">
+      <button class="btn-voltar" data-destino="tela-menu">← Voltar</button>
+      <h2>Como Jogar</h2>
+    </header>
+    <div class="tela-rolagem">
+      <div class="regras">
+        <section>
+          <h3>Objetivo</h3>
+          <p>Cada jogador começa com <b>8000 PV</b>. Vence quem zerar os PV do oponente ou quem sobrar com cartas no deck quando o do oponente acabar (quem tenta comprar com o deck vazio perde).</p>
+        </section>
+        <section>
+          <h3>Preparação</h3>
+          <p>Deck de 40 cartas (até 3 cópias de cada) e Deck Extra com as fusões. Cada um compra 5 cartas. O limite de mão é 6: no fim do turno, o que passar disso vai para o cemitério.</p>
+        </section>
+        <section>
+          <h3>O turno</h3>
+          <p><b>Draw</b> (compra 1) → <b>Standby</b> (efeitos de início de turno) → <b>Main</b> (jogar cartas) → <b>Battle</b> (atacar) → <b>End</b>. Quem começa não compra nem ataca no turno 1. Clique no <b>selo redondo</b> para avançar de fase.</p>
+        </section>
+        <section>
+          <h3>Invocar monstros</h3>
+          <p>Uma Invocação Normal por turno, em <b>ataque</b> (virado para cima) ou <b>defesa</b> (virado para baixo). Níveis 1–4 não pedem tributo; níveis 5–6 pedem <b>1 tributo</b>; níveis 7–8 pedem <b>2</b> (você escolhe quais monstros seus sacrificar). Um monstro não muda de posição no turno em que foi invocado.</p>
+        </section>
+        <section>
+          <h3>Evolução (fusão)</h3>
+          <p>Clique no <b>Deck Extra</b> para ver as fusões. Quando os materiais estão disponíveis (por exemplo, Lagarta-da-seda em campo + Casulo de Folha na mão), a pilha brilha em verde. Evoluir <b>não conta</b> como Invocação Normal e pode ser feito várias vezes no turno.</p>
+        </section>
+        <section>
+          <h3>Magias, equipamentos e armadilhas</h3>
+          <p>Magias são ativadas da mão e vão ao cemitério. Equipamentos ficam presos a um monstro. Você pode baixar até 5 cartas na zona de magias/armadilhas (armadilhas ficam viradas para baixo). Uma armadilha <b>ativa sozinha</b> quando acontece a situação escrita nela (ataque do oponente, invocação, dano de batalha), mas só a partir do turno <b>seguinte</b> ao que foi baixada. Depois de ativar, vai ao cemitério.</p>
+        </section>
+        <section>
+          <h3>Cores e raridades das cartas</h3>
+          <p>A <b>cor da moldura</b> mostra o <b>tipo</b>: cinza-areia = monstro simples (sem efeito), laranja = monstro com efeito, roxo = fusão, verde-água = magia, azul = equipamento, magenta = armadilha, verde = campo. O <b>ícone redondo</b> no canto é o bioma e o fundo da arte também muda de tom com ele. Os <b>losangos laranja</b> ao lado da arte são os tributos que a carta pede (sem losango, entra direto). A <b>raridade</b> está na gema do canto e no brilho: <b style="color:#8d969b">● Comum</b> (sem brilho), <b style="color:#4aa8ff">◆ Rara</b> (brilho leve), <b style="color:#c07bff">★ Super Rara</b> (brilho forte e reflexo) e <b style="color:#ffc53d">✦ Lendária</b> (brilho dourado e holograma). Monstros Super Raros e Lendários chegam ao campo com som e clarão próprios. O texto do efeito aparece no painel ao passar o mouse; em Opções dá para voltar ao visual clássico.</p>
+        </section>
+        <section>
+          <h3>Efeitos de monstros</h3>
+          <p>Muitos monstros têm habilidades: <b>ao ser invocado</b> (só se entrarem virados para cima), <b>ao destruir um monstro em batalha</b>, <b>ao ser destruído</b>, <b>na Standby Phase</b> e <b>contínuas</b> (auras que valem enquanto o monstro está virado para cima, inclusive as que enfraquecem os monstros do oponente).</p>
+        </section>
+        <section>
+          <h3>Fusões especiais</h3>
+          <p>Algumas fusões, além dos materiais, exigem uma <b>condição única</b> na hora de evoluir: pouca vida, muita vida, ter menos PV que o oponente, cartas no cemitério, uma carta de campo específica ou um turno mínimo. A condição aparece nos detalhes da carta, e a pilha do Deck Extra só brilha quando ela é cumprida. Toda fusão chega <b>exausta</b>: não ataca no turno em que é criada.</p>
+        </section>
+        <section>
+          <h3>Modo História</h3>
+          <p>Uma sequência de duelos contra guardiões, com <b>dificuldade crescente</b> (a IA fica mais esperta e os oponentes ganham mais PV). Cada fase tem <b>objetivos</b>: além de vencer, pode ser preciso fazer fusões, não sofrer ataques diretos, não perder monstros, vencer em poucos turnos e mais. A fase seguinte só abre quando você cumpre todos. Seu progresso fica salvo neste navegador.</p>
+        </section>
+        <section>
+          <h3>Campo e biomas</h3>
+          <p>Os monstros são de quatro biomas: 🧑 Humano, 🐛 Inseto, 🌊 Marinho e 🪐 Planetário. Só existe <b>uma carta de campo</b> no jogo inteiro, no meio da mesa, e ela dá bônus ou penalidades de ATK/DEF aos monstros dos <b>dois</b> jogadores, conforme o bioma. Os valores que mudam aparecem em verde (subiu) ou vermelho (caiu).</p>
+        </section>
+        <section>
+          <h3>Batalha</h3>
+          <ul>
+            <li><b>Ataque contra ataque:</b> vence o maior ATK; o dono do perdedor sofre a diferença de dano. Empate destrói os dois, sem dano.</li>
+            <li><b>Ataque contra defesa:</b> se ATK &gt; DEF o defensor é destruído (sem dano); se ATK &lt; DEF o atacante sofre a diferença; igual, nada acontece. Defensor virado para baixo é revelado antes.</li>
+            <li><b>Ataque direto:</b> só quando o oponente não tem monstros.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Atalhos</h3>
+          <p>Clique numa carta da mão para ver as ações possíveis. Passe o mouse sobre qualquer carta para ler os detalhes. <b>Esc</b> abre o menu de pausa durante o duelo.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OPÇÕES ===================== -->
+  <section id="tela-opcoes" class="tela">
+    <header class="tela-topo">
+      <button class="btn-voltar" data-destino="tela-menu">← Voltar</button>
+      <h2>Opções</h2>
+    </header>
+    <div class="tela-rolagem">
+      <div class="opcoes">
+        <div class="grupo-opcao" data-chave="velocidadeIA">
+          <h3>Velocidade do computador</h3>
+          <p>Quanto tempo o computador espera entre uma ação e outra.</p>
+          <div class="seg">
+            <button data-valor="lenta">Lenta</button>
+            <button data-valor="normal">Normal</button>
+            <button data-valor="rapida">Rápida</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="quemComeca">
+          <h3>Quem começa o duelo</h3>
+          <p>No duelo contra o computador, o Jogador 1 é você.</p>
+          <div class="seg">
+            <button data-valor="sorteio">Sorteio</button>
+            <button data-valor="jogador1">Jogador 1</button>
+            <button data-valor="jogador2">Jogador 2</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="deckJogador">
+          <h3>Seu deck (Jogador 1)</h3>
+          <p>Aleatório sorteia um deck com as cartas básicas. Os decks Marciano e Humanos têm fusões com animação própria.</p>
+          <div class="seg"></div>
+        </div>
+        <div class="grupo-opcao" data-chave="deckOponente">
+          <h3>Deck do oponente (Jogador 2 / computador)</h3>
+          <p>No duelo local, é o deck do segundo jogador.</p>
+          <div class="seg"></div>
+        </div>
+        <div class="grupo-opcao" data-chave="animacaoFusao">
+          <h3>Animação de fusão</h3>
+          <p>Aparece quando uma fusão dos decks Marciano ou Humanos entra em campo. Clique ou tecla pula.</p>
+          <div class="seg">
+            <button data-valor="completa">Com som</button>
+            <button data-valor="muda">Sem som</button>
+            <button data-valor="desligada">Desligada</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="layoutCarta">
+          <h3>Visual das cartas</h3>
+          <p>Novo: arte em destaque, cor do fundo pelo tipo da carta e losangos laranja para os tributos. O texto do efeito aparece só no painel ao passar o mouse. Clássico: o desenho antigo.</p>
+          <div class="seg">
+            <button data-valor="novo">Novo</button>
+            <button data-valor="classico">Clássico</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="sons">
+          <h3>Efeitos sonoros</h3>
+          <p>Som de carta comprada e de monstros Super Raros e Lendários entrando em campo.</p>
+          <div class="seg">
+            <button data-valor="ligados">Ligados</button>
+            <button data-valor="desligados">Desligados</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="ambiente">
+          <h3>Som do ambiente</h3>
+          <p>Vento, mar, grilos e uma trilha suave que mudam com o campo (o vento de Marte acompanha a poeira da tela).</p>
+          <div class="seg">
+            <button data-valor="ligado">Ligado</button>
+            <button data-valor="desligado">Desligado</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="volume">
+          <h3>Volume do ambiente</h3>
+          <div class="seg">
+            <button data-valor="baixo">Baixo</button>
+            <button data-valor="medio">Médio</button>
+            <button data-valor="alto">Alto</button>
+          </div>
+        </div>
+        <div class="grupo-opcao" data-chave="qualidade">
+          <h3>Qualidade dos efeitos do campo</h3>
+          <p>Partículas, névoa e reflexos de sol. Use Média ou Baixa se o jogo ficar pesado no seu computador.</p>
+          <div class="seg">
+            <button data-valor="alta">Alta</button>
+            <button data-valor="media">Média</button>
+            <button data-valor="baixa">Baixa</button>
+          </div>
+        </div>
+        <button id="btn-padrao" class="menu-item pequeno">Restaurar padrões</button>
+        <p class="nota">As opções ficam salvas neste navegador.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DUELO ===================== -->
+  <div id="jogo" class="oculto">
+    <!-- MESA: visão de cima, com o tabuleiro inclinado em perspectiva -->
+    <main id="mesa" data-cenario="padrao">
+      <!-- Camadas de cenário: a carta de campo ativa decide qual aparece (troca suave por opacidade) -->
+      <div id="cenarios" aria-hidden="true">
+        <div class="cenario cen-padrao"></div>
+        <div class="cenario cen-marte"></div>
+        <div class="cenario cen-terra"></div>
+        <div class="cenario cen-europa"></div>
+        <div class="cenario cen-floresta"></div>
+        <div class="cenario cen-cidade"></div>
+        <div class="cenario cen-solar"></div>
+      </div>
+      <!-- Atmosfera: partículas flutuando e vinheta (as cores mudam com o cenário) -->
+      <div id="atmosfera" aria-hidden="true">
+        <div class="part part-a"></div>
+        <div class="part part-b"></div>
+        <div class="vinheta"></div>
+      </div>
+      <!-- Canto superior esquerdo: título e botão de menu -->
+      <div id="cabecalho">
+        <h1>Real Battle Card</h1>
+        <button id="btn-menu" title="Menu de pausa (Esc)">☰ Menu</button>
+      </div>
+
+      <!-- Oponente: vida no canto superior direito e mão (de costas) saindo por cima -->
+      <div id="hud-sup" class="hud"></div>
+      <div id="mao-sup" class="mao"></div>
+
+      <!-- Tabuleiro: o #palco cria a perspectiva e o #tabuleiro é o "chão" inclinado -->
+      <div id="palco">
+        <div id="tabuleiro"></div>
+      </div>
+      <div id="dica"></div>
+      <!-- Objetivos da fase (só no Modo História) -->
+      <div id="objetivos" class="oculto"></div>
+
+      <!-- Selo de turno/fase (lado direito). Clicar nele avança a fase. -->
+      <div id="selo-fase" role="button" tabindex="0" title="Clique para avançar de fase"></div>
+
+      <!-- Jogador de baixo: vida no canto inferior esquerdo e mão saindo por baixo -->
+      <div id="hud-inf" class="hud"></div>
+      <div id="bandeja-extra" class="oculto"></div>
+      <div id="mao-inf" class="mao"></div>
+
+      <!-- Botões de ação (canto inferior direito) -->
+      <div id="acoes">
+        <button id="btn-direto" class="oculto">Ataque direto</button>
+        <button id="btn-cancelar" class="oculto">Cancelar seleção</button>
+        <button id="btn-fase">Próxima fase</button>
+        <button id="btn-finalizar">Finalizar turno</button>
+        <button id="btn-lateral" title="Mostrar/ocultar detalhes e registro">Registro</button>
+      </div>
+    </main>
+
+    <!-- Lateral: detalhes da carta sob o mouse e registro de ações -->
+    <aside id="lateral">
+      <div id="detalhes"><p class="vazio">Passe o mouse sobre uma carta para ver os detalhes.</p></div>
+      <h2>Registro</h2>
+      <ol id="log"></ol>
+    </aside>
+  </div>
+
+  <div id="aviso" role="alert"></div>
+  <div id="menu-carta" class="oculto"></div>
+
+  <!-- Menu de pausa do duelo -->
+  <div id="pausa" class="sobreposicao oculto">
+    <div class="caixa-menu">
+      <h2 id="pausa-titulo">Pausa</h2>
+      <p id="pausa-texto" class="oculto"></p>
+      <div id="pausa-botoes" class="lista-menu"></div>
+    </div>
+  </div>
+
+  <!-- Fim de duelo -->
+  <div id="fim" class="sobreposicao oculto">
+    <div class="caixa-menu">
+      <h2 id="fim-titulo"></h2>
+      <p id="fim-texto" class="oculto"></p>
+      <ul id="fim-objetivos" class="oculto"></ul>
+      <div class="lista-menu">
+        <button id="btn-novo" class="menu-item">Jogar de novo</button>
+        <button id="btn-fim-menu" class="menu-item">Menu principal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ES module: precisa ser aberto por um servidor local (ex.: python -m http.server) -->
+  <script type="module" src="menu.js"></script>
+</body>
+</html>

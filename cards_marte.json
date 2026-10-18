@@ -1,0 +1,613 @@
+{
+  "monstros": [
+    {
+      "id": "monstro_rover_de_prospeccao",
+      "nome": "Rover de Prospecção",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1200,
+      "def": 1400,
+      "icone": "🚙",
+      "descricao": "Um rover blindado que vasculha o solo vermelho atrás de minérios.",
+      "deck": "marciano"
+    },
+    {
+      "id": "monstro_drone_de_reconhecimento",
+      "nome": "Drone de Reconhecimento",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 800,
+      "def": 1000,
+      "icone": "🚁",
+      "descricao": "Voa baixo sobre as dunas e envia mapas térmicos à base.",
+      "deck": "marciano"
+    },
+    {
+      "id": "monstro_criatura_de_magma_subterranea",
+      "nome": "Criatura de Magma Subterrânea",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1600,
+      "def": 1100,
+      "icone": "🌋",
+      "descricao": "Desperta nas cavernas de Olympus Mons, sedenta de calor.",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 300 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_cientista_humano_marciano",
+      "nome": "Cientista Humano-Marciano",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1000,
+      "def": 1500,
+      "icone": "🧪",
+      "descricao": "Nascido na colônia, domina a tecnologia dos antigos robôs.",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 100,
+        "descricao_texto": "Na fase standby, você recupera 100 PV."
+      }
+    },
+    {
+      "id": "monstro_escavadeira_autonoma",
+      "nome": "Escavadeira Autônoma",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1300,
+      "def": 1300,
+      "icone": "🚜",
+      "descricao": "Cava sem parar, mesmo durante as tempestades de poeira.",
+      "deck": "marciano"
+    },
+    {
+      "id": "monstro_mineradora_de_ferro",
+      "nome": "Mineradora de Ferro",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1500,
+      "def": 1200,
+      "icone": "⛏️",
+      "descricao": "Extrai óxido de ferro em escala industrial.",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_def",
+        "alvo": "monstros_do_bioma",
+        "valor": 100,
+        "bioma": "planetario",
+        "descricao_texto": "Seus monstros Planetários ganham 100 de DEF."
+      }
+    },
+    {
+      "id": "monstro_geologo_marciano",
+      "nome": "Geólogo Marciano",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1100,
+      "def": 1300,
+      "icone": "🧭",
+      "descricao": "Lê as camadas de rocha como quem lê um livro antigo.",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Ao ser invocado, você recupera 300 PV."
+      }
+    }
+  ],
+  "fusoes": [
+    {
+      "id": "fusao_automato_de_ferro_vermelho",
+      "nome": "Autômato de Ferro Vermelho",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 2000,
+      "def": 2000,
+      "icone": "🤖",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_rover_de_prospeccao",
+          "local": "campo"
+        },
+        {
+          "id": "magia_nucleo_vulcanico_marciano",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Quando destruído, causa 300 de dano ao oponente."
+      },
+      "descricao": "Um rover reforjado no calor do núcleo vulcânico.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_tita_de_plasma_das_cavernas",
+      "nome": "Titã de Plasma das Cavernas",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2300,
+      "def": 2200,
+      "icone": "⚡",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_criatura_de_magma_subterranea",
+          "local": "campo"
+        },
+        {
+          "id": "magia_nucleo_vulcanico_marciano",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Na fase standby, causa 300 de dano ao oponente."
+      },
+      "descricao": "Magma vivo contido em uma couraça de plasma.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_central_de_comando_orbital_marciana",
+      "nome": "Central de Comando Orbital Marciana",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1800,
+      "def": 2400,
+      "icone": "📡",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_cientista_humano_marciano",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_drone_de_reconhecimento",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Na fase standby, você recupera 300 pontos de vida."
+      },
+      "descricao": "A estação que coordena todos os drones da colônia.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_enxame_escarlate",
+      "nome": "Enxame Escarlate",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1700,
+      "def": 1700,
+      "icone": "🛰️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_drone_de_reconhecimento",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_rover_de_prospeccao",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 100,
+        "bioma": "planetario",
+        "descricao_texto": "Seus monstros planetários ganham 100 de ATK."
+      },
+      "descricao": "Drones e rover agem como uma única mente.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_sentinela_de_magma_blindado",
+      "nome": "Sentinela de Magma Blindado",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2100,
+      "def": 2200,
+      "icone": "🗼",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_criatura_de_magma_subterranea",
+          "local": "campo"
+        },
+        {
+          "id": "equip_carapaca_de_ferro_oxidado",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 400,
+        "descricao_texto": "Quando destruída, causa 400 de dano ao oponente."
+      },
+      "descricao": "A carapaça enferrujada esconde um coração em chamas.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_pesquisador_blindado_ares",
+      "nome": "Pesquisador Blindado Ares",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1700,
+      "def": 2300,
+      "icone": "🥽",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_cientista_humano_marciano",
+          "local": "campo"
+        },
+        {
+          "id": "equip_carapaca_de_ferro_oxidado",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, você recupera 200 pontos de vida."
+      },
+      "descricao": "Um cientista dentro de uma armadura pesada de exploração.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_perfuratriz_de_plasma",
+      "nome": "Perfuratriz de Plasma",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2200,
+      "def": 2000,
+      "icone": "🔩",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_escavadeira_autonoma",
+          "local": "campo"
+        },
+        {
+          "id": "magia_nucleo_vulcanico_marciano",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, causa 200 de dano ao oponente."
+      },
+      "descricao": "Fura a crosta marciana com uma broca de plasma.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_dragao_de_cinzas_de_olympus",
+      "nome": "Dragão de Cinzas de Olympus",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2400,
+      "def": 2300,
+      "icone": "🐉",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_criatura_de_magma_subterranea",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_drone_de_reconhecimento",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 600,
+        "descricao_texto": "Quando destruído, causa 600 de dano ao oponente."
+      },
+      "descricao": "Um colosso de cinzas guiado por sensores alienígenas.",
+      "deck": "marciano"
+    },
+    {
+      "id": "fusao_guardiao_da_cratera_vermelha",
+      "nome": "Guardião da Cratera Vermelha",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2400,
+      "def": 2200,
+      "icone": "🗿",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_mineradora_de_ferro",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_escavadeira_autonoma",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_invocar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 600,
+        "descricao_texto": "Ao ser invocado, causa 600 de dano ao oponente."
+      },
+      "condicao_especial": {
+        "tipo": "campo_ativo",
+        "id": "campo_cratera_de_marte",
+        "descricao_texto": "a carta de campo Cratera de Marte precisa estar ativa."
+      },
+      "deck": "marciano",
+      "descricao": "Uma máquina colossal que só funciona dentro da cratera onde foi montada."
+    },
+    {
+      "id": "fusao_fenix_de_ferrugem",
+      "nome": "Fênix de Ferrugem",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2600,
+      "def": 2300,
+      "icone": "🔥",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_criatura_de_magma_subterranea",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_geologo_marciano",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_invocar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 1500,
+        "descricao_texto": "Ao ser invocada, você recupera 1500 PV."
+      },
+      "condicao_especial": {
+        "tipo": "pv_maximo",
+        "valor": 4000,
+        "descricao_texto": "você precisa estar com 4000 PV ou menos."
+      },
+      "deck": "marciano",
+      "descricao": "Das cinzas de uma base quase destruída, a fênix de ferro renasce."
+    }
+  ],
+  "magias": [
+    {
+      "id": "magia_nucleo_vulcanico_marciano",
+      "nome": "Núcleo Vulcânico Marciano",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 400,
+        "descricao_texto": "Causa 400 de dano ao oponente. Também serve de material para fusões marcianas."
+      },
+      "descricao": "Um núcleo de rocha derretida que pulsa de energia.",
+      "deck": "marciano",
+      "icone": "🌋"
+    },
+    {
+      "id": "magia_tempestade_de_poeira_vermelha",
+      "nome": "Tempestade de Poeira Vermelha",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_def",
+        "alvo": "todos_monstros",
+        "valor": 200,
+        "descricao_texto": "Seus monstros ganham 200 de DEF permanentemente."
+      },
+      "descricao": "A poeira ferruginosa cobre o campo e reforça as couraças.",
+      "deck": "marciano",
+      "icone": "🌪️"
+    },
+    {
+      "id": "magia_painel_solar_de_reserva",
+      "nome": "Painel Solar de Reserva",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 500,
+        "descricao_texto": "Recupera 500 pontos de vida."
+      },
+      "descricao": "Energia limpa para manter a base viva.",
+      "deck": "marciano",
+      "icone": "🔆"
+    },
+    {
+      "id": "magia_varredura_de_satelite",
+      "nome": "Varredura de Satélite",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 2,
+        "descricao_texto": "Compre 2 cartas."
+      },
+      "descricao": "Os satélites orbitais mapeiam o próximo movimento.",
+      "deck": "marciano",
+      "icone": "🛰️"
+    },
+    {
+      "id": "magia_erupcao_de_olympus_mons",
+      "nome": "Erupção de Olympus Mons",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 700,
+        "descricao_texto": "Causa 700 de dano ao oponente."
+      },
+      "descricao": "O maior vulcão do sistema solar acorda.",
+      "deck": "marciano",
+      "icone": "🔥"
+    },
+    {
+      "id": "magia_reciclagem_de_sucata",
+      "nome": "Reciclagem de Sucata",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "reviver_monstro",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Traz de volta o monstro comum mais forte do seu cemitério."
+      },
+      "descricao": "Peças velhas voltam a funcionar numa oficina de campo.",
+      "icone": "♻️"
+    }
+  ],
+  "equipamentos": [
+    {
+      "id": "equip_carapaca_de_ferro_oxidado",
+      "nome": "Carapaça de Ferro Oxidado",
+      "tipo": "equipamento",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 300,
+        "descricao_texto": "O monstro equipado ganha 300 de ATK e 300 de DEF. Também serve de material para fusões marcianas."
+      },
+      "efeito_secundario": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 300,
+        "descricao_texto": "O monstro equipado ganha 300 de DEF."
+      },
+      "descricao": "Placas de ferro enferrujado, duras como rocha.",
+      "deck": "marciano",
+      "icone": "🧱"
+    },
+    {
+      "id": "equip_lamina_de_hematita",
+      "nome": "Lâmina de Hematita",
+      "tipo": "equipamento",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 500,
+        "descricao_texto": "O monstro equipado ganha 500 de ATK."
+      },
+      "descricao": "Afiada com o minério mais comum de Marte.",
+      "deck": "marciano",
+      "icone": "🔪"
+    },
+    {
+      "id": "equip_blindagem_de_magnetita",
+      "nome": "Blindagem de Magnetita",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 400,
+        "descricao_texto": "O monstro equipado ganha 400 de DEF."
+      },
+      "descricao": "Um campo magnético desvia os golpes.",
+      "deck": "marciano",
+      "icone": "🧲"
+    }
+  ],
+  "armadilhas": [
+    {
+      "id": "armadilha_tempestade_de_areia",
+      "nome": "Tempestade de Areia",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "deck": "marciano",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "negar_ataque",
+        "alvo": "oponente",
+        "valor": 0,
+        "descricao_texto": "Anula o ataque declarado."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "evento_ativacao": "ataque_declarado",
+      "descricao": "Uma parede de poeira vermelha que cega os atacantes.",
+      "icone": "🏜️"
+    }
+  ],
+  "campos": []
+}

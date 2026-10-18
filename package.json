@@ -1,0 +1,14 @@
+{
+  "name": "jogo-de-cartas-evolucao",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Jogo de cartas de navegador por turnos com biomas, evolucoes e fusoes",
+  "scripts": {
+    "test": "node validar_cartas.js && node validar_decks.js && node teste_estado.js && node teste_turnos.js && node teste_regras.js && node teste_armadilhas.js && node teste_efeitos.js && node teste_decks.js && node teste_historia.js && node teste_ia.js",
+    "balanceamento": "node simular_balanceamento.js 300",
+    "servidor": "python3 -m http.server 8000",
+    "teste:navegador": "node teste_navegador.mjs",
+    "sala": "python3 -m http.server 8000",
+    "fundos": "python ferramentas/gerar_fundos.py"
+  }
+}

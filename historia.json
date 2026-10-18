@@ -1,0 +1,86 @@
+{
+  "titulo": "A Fenda dos Quatro Mundos",
+  "prologo": "Há muito tempo, quatro mundos viviam separados: o dos Humanos, o dos Insetos, o dos Marinhos e o Planetário. Uma fenda se abriu entre eles, e agora criaturas e máquinas de todos os mundos se encontram em duelos que decidem o destino de cada um. Você é um duelista que ouviu o chamado da fenda. Vença os guardiões de cada mundo, aprenda a evoluir suas criaturas e chegue ao Comandante Final.",
+  "fases": [
+    {
+      "id": "f01",
+      "nome": "O Despertar",
+      "historia": "Na vila junto à fenda, o velho Mestre de Duelos testa todo recém-chegado. 'Mostre que sabe invocar e atacar, e eu abro a estrada para você.'",
+      "conclusao": "O Mestre sorri: 'Boas mãos. Mas ainda há muito mais por trás da fenda.'",
+      "oponente": { "nome": "Mestre da Vila", "deck": "aleatorio", "nivel": 1, "pv": 8000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }]
+    },
+    {
+      "id": "f02",
+      "nome": "A Primeira Metamorfose",
+      "historia": "Uma entomóloga cruza seu caminho. 'Nos meus mundos, as criaturas evoluem. Junte os materiais certos e chame uma fusão do Deck Extra. Prove que aprendeu.'",
+      "conclusao": "'Viu? Evoluir muda tudo', diz a entomóloga, entregando um mapa para a costa.",
+      "oponente": { "nome": "Entomóloga Lara", "deck": "aleatorio", "nivel": 1, "pv": 8000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "fusoes", "valor": 1 }]
+    },
+    {
+      "id": "f03",
+      "nome": "Sombra Silenciosa",
+      "historia": "Na costa, um duelista de capuz ataca sempre direto, sem aviso. 'Se você mantiver monstros em campo, ele não encontrará abertura.' Vença sem sofrer nenhum ataque direto.",
+      "conclusao": "O encapuzado tira o capuz: 'Você protegeu bem o seu campo. Eu respeito isso.'",
+      "oponente": { "nome": "Sombra do Cais", "deck": "aleatorio", "nivel": 2, "pv": 8000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "sem_dano_direto" }]
+    },
+    {
+      "id": "f04",
+      "nome": "Poeira Vermelha",
+      "historia": "A fenda leva você a Marte, um mundo de ferro oxidado e calor. Os robôs de prospecção não têm paciência. 'Termine rápido, ou a tempestade de poeira cobre tudo.'",
+      "conclusao": "A tempestade passa, e o céu laranja se abre. O caminho para o Esquadrão Alfa está livre.",
+      "oponente": { "nome": "Unidade Prospectora", "deck": "marciano", "nivel": 2, "pv": 8000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "em_turnos", "valor": 10 }]
+    },
+    {
+      "id": "f05",
+      "nome": "O Esquadrão Alfa",
+      "historia": "Soldados em exoesqueletos bloqueiam a ponte da base. Cada um coopera com o outro. 'Para passar, mostre que sabe combinar suas forças: evolua duas vezes.'",
+      "conclusao": "A sargento abaixa a arma. 'Duas evoluções num só duelo. Pode passar, recruta.'",
+      "oponente": { "nome": "Sargento Vega", "deck": "humanos", "nivel": 3, "pv": 8000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "fusoes", "valor": 2 }]
+    },
+    {
+      "id": "f06",
+      "nome": "Muralha de Aço",
+      "historia": "Um engenheiro construiu uma muralha de máquinas ao redor do laboratório. Ele tem mais energia que você (10000 PV) e ataca com precisão. Sua defesa precisa ser perfeita: nenhum ataque direto.",
+      "conclusao": "A muralha cai. O engenheiro sussurra: 'Existe algo pior no coração de Olympus Mons.'",
+      "oponente": { "nome": "Engenheiro-Chefe Ton", "deck": "humanos", "nivel": 3, "pv": 10000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "sem_dano_direto" }]
+    },
+    {
+      "id": "f07",
+      "nome": "Fornalha de Olympus",
+      "historia": "Dentro do vulcão, a Criatura de Magma guarda o núcleo da fenda. O calor castiga os duelistas. Vença usando fusões e termine com pelo menos 3000 PV.",
+      "conclusao": "O núcleo esfria. A fenda ainda pulsa, mas agora você ouve vozes vindo dela.",
+      "oponente": { "nome": "Guardiã da Fornalha", "deck": "marciano", "nivel": 4, "pv": 10000, "cartasExtras": 0 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "fusoes", "valor": 2 }, { "tipo": "pv_minimo", "valor": 3000 }]
+    },
+    {
+      "id": "f08",
+      "nome": "A Rede de Armadilhas",
+      "historia": "O corredor final da base está minado e cheio de armadilhas escondidas. O veterano que o guarda sabe usar iscas. 'Quem ataca sem pensar perde seus monstros. Termine o duelo sem perder nenhum.'",
+      "conclusao": "'Você pensou antes de atacar', diz o veterano. 'É raro.'",
+      "oponente": { "nome": "Veterano Corvo", "deck": "humanos", "nivel": 4, "pv": 10000, "cartasExtras": 1 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "sem_perder_monstros" }]
+    },
+    {
+      "id": "f09",
+      "nome": "O Guardião dos Quatro Mundos",
+      "historia": "No centro da fenda, um colosso de metal e magma guarda a passagem. Ele nunca perdeu. Para vencê-lo, evolua uma criatura e não sofra nenhum ataque direto.",
+      "conclusao": "O colosso desmorona em poeira vermelha. Atrás dele, uma luz azul e verde, como o planeta de onde tudo começou.",
+      "oponente": { "nome": "Guardião de Magma", "deck": "marciano", "nivel": 5, "pv": 12000, "cartasExtras": 1 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "fusoes", "valor": 1 }, { "tipo": "sem_dano_direto" }]
+    },
+    {
+      "id": "f10",
+      "nome": "O Comandante Final",
+      "historia": "O Comandante Alfa espera do outro lado, com um exército de máquinas e uma mão cheia de cartas. É o duelo final. 'Se você é mesmo digno, evolua duas vezes e não deixe nada passar pela sua defesa.'",
+      "conclusao": "A fenda se fecha. Os quatro mundos finalmente respiram em paz, e seu nome será lembrado como o do duelista que uniu todos eles. Fim.",
+      "oponente": { "nome": "Comandante Alfa", "deck": "humanos", "nivel": 5, "pv": 12000, "cartasExtras": 2 },
+      "objetivos": [{ "tipo": "vencer" }, { "tipo": "fusoes", "valor": 2 }, { "tipo": "sem_dano_direto" }]
+    }
+  ]
+}

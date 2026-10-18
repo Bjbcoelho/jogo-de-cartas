@@ -1,0 +1,1366 @@
+{
+  "monstros": [
+    {
+      "id": "monstro_arqueira_da_vila",
+      "nome": "Arqueira da Vila",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 900,
+      "def": 1100,
+      "icone": "🏹",
+      "descricao": "Uma jovem arqueira que protege os portões da vila.",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 200,
+        "descricao_texto": "Ao ser invocada, causa 200 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_aprendiz_de_espada",
+      "nome": "Aprendiz de Espada",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1200,
+      "def": 1000,
+      "icone": "🤺",
+      "descricao": "Um jovem guerreiro que treina todos os dias para ficar mais forte."
+    },
+    {
+      "id": "monstro_guerreiro_veterano",
+      "nome": "Guerreiro Veterano",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 5,
+      "atk": 2000,
+      "def": 1800,
+      "icone": "🪖",
+      "descricao": "Soldado calejado por mil batalhas.",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 100,
+        "bioma": "humano",
+        "descricao_texto": "Seus monstros Humanos ganham 100 de ATK."
+      }
+    },
+    {
+      "id": "monstro_cavaleiro_lendario",
+      "nome": "Cavaleiro Lendário",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "lendaria",
+      "nivel": 8,
+      "atk": 3000,
+      "def": 2600,
+      "icone": "⚔️",
+      "descricao": "Herói cuja fama atravessa gerações.",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_oponente",
+        "valor": -200,
+        "descricao_texto": "Aura lendária: os monstros do oponente perdem 200 de ATK."
+      }
+    },
+    {
+      "id": "monstro_lagarta_da_seda",
+      "nome": "Lagarta-da-seda",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 600,
+      "def": 900,
+      "icone": "🐛",
+      "descricao": "Pequena lagarta que se prepara para uma grande transformação."
+    },
+    {
+      "id": "monstro_besouro_blindado",
+      "nome": "Besouro Blindado",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1500,
+      "def": 1700,
+      "icone": "🪲",
+      "descricao": "Seu casco é duro como aço.",
+      "efeito": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Ao ser destruído, você recupera 300 PV."
+      }
+    },
+    {
+      "id": "monstro_vespa_cacadora",
+      "nome": "Vespa Caçadora",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2200,
+      "def": 1700,
+      "icone": "🐝",
+      "descricao": "Ataca em alta velocidade com seu ferrão venenoso.",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 400,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 400 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_rainha_formiga",
+      "nome": "Rainha Formiga",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2700,
+      "def": 2400,
+      "icone": "🐜",
+      "descricao": "Comanda um exército incontável de formigas.",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 200,
+        "bioma": "inseto",
+        "descricao_texto": "Seus monstros Insetos ganham 200 de ATK."
+      }
+    },
+    {
+      "id": "monstro_lula_comum",
+      "nome": "Lula-comum",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1000,
+      "def": 1200,
+      "icone": "🐙",
+      "descricao": "Uma lula ágil que vive em águas rasas."
+    },
+    {
+      "id": "monstro_peixe_espada",
+      "nome": "Peixe-espada",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1700,
+      "def": 1300,
+      "icone": "🐟",
+      "descricao": "Corta a água como uma lâmina.",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Ao destruir um monstro em batalha, você recupera 300 PV."
+      }
+    },
+    {
+      "id": "monstro_tubarao_martelo",
+      "nome": "Tubarão-martelo",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2300,
+      "def": 2000,
+      "icone": "🦈",
+      "descricao": "Predador feroz dos recifes profundos.",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 500 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_baleia_ancestral",
+      "nome": "Baleia Ancestral",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "lendaria",
+      "nivel": 8,
+      "atk": 2900,
+      "def": 3200,
+      "icone": "🐋",
+      "descricao": "Uma gigante milenar que domina os oceanos.",
+      "efeito": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Na fase standby, você recupera 300 PV."
+      }
+    },
+    {
+      "id": "monstro_sonda_orbital",
+      "nome": "Sonda Orbital",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 800,
+      "def": 1000,
+      "icone": "🛰️",
+      "descricao": "Pequena sonda que mapeia planetas distantes."
+    },
+    {
+      "id": "monstro_rover_de_marte",
+      "nome": "Rover de Marte",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1400,
+      "def": 1800,
+      "icone": "🤖",
+      "descricao": "Explorador robótico que atravessa o deserto vermelho."
+    },
+    {
+      "id": "monstro_golem_lunar",
+      "nome": "Golem Lunar",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2400,
+      "def": 2600,
+      "icone": "🗿",
+      "descricao": "Criatura de rocha formada nas crateras da Lua.",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_def",
+        "alvo": "monstros_do_bioma",
+        "valor": 200,
+        "bioma": "planetario",
+        "descricao_texto": "Seus monstros Planetários ganham 200 de DEF."
+      }
+    },
+    {
+      "id": "monstro_titan_de_saturno",
+      "nome": "Titã de Saturno",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "lendaria",
+      "nivel": 8,
+      "atk": 3200,
+      "def": 2800,
+      "icone": "🪐",
+      "descricao": "Gigante nascido entre os anéis de Saturno.",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "destruir_monstro",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "Ao ser invocado, destrói o monstro mais forte do oponente."
+      }
+    },
+    {
+      "id": "monstro_curandeira_do_templo",
+      "nome": "Curandeira do Templo",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1000,
+      "def": 1400,
+      "icone": "🧝‍♀️",
+      "descricao": "Cuida dos feridos nas escadarias do templo antigo.",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 400,
+        "descricao_texto": "Ao ser invocada, você recupera 400 PV."
+      }
+    },
+    {
+      "id": "monstro_mago_da_torre",
+      "nome": "Mago da Torre",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1700,
+      "def": 1100,
+      "icone": "🧙",
+      "descricao": "Estuda os astros no topo de uma torre esquecida.",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 300 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_aranha_das_dunas",
+      "nome": "Aranha das Dunas",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1300,
+      "def": 900,
+      "icone": "🕷️",
+      "descricao": "Tece armadilhas de seda entre as rochas do deserto."
+    },
+    {
+      "id": "monstro_escorpiao_das_dunas",
+      "nome": "Escorpião das Dunas",
+      "bioma": "inseto",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1700,
+      "def": 1200,
+      "icone": "🦂",
+      "descricao": "Seu ferrão guarda veneno até depois de cair em combate.",
+      "efeito": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Ao ser destruído, causa 500 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_agua_viva_eletrica",
+      "nome": "Água-viva Elétrica",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1100,
+      "def": 900,
+      "icone": "🪼",
+      "descricao": "Flutua nas correntes soltando faíscas azuladas."
+    },
+    {
+      "id": "monstro_orca_cacadora",
+      "nome": "Orca Caçadora",
+      "bioma": "marinho",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2400,
+      "def": 1800,
+      "icone": "🐬",
+      "descricao": "Caça em bando e nunca volta de mãos vazias.",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Ao destruir um monstro em batalha, você compra 1 carta."
+      }
+    },
+    {
+      "id": "monstro_cometa_errante",
+      "nome": "Cometa Errante",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1300,
+      "def": 900,
+      "icone": "🌠",
+      "descricao": "Uma pedra de gelo que riscou o céu e decidiu ficar."
+    },
+    {
+      "id": "monstro_sentinela_solar",
+      "nome": "Sentinela Solar",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "super_rara",
+      "nivel": 5,
+      "atk": 2000,
+      "def": 1900,
+      "icone": "☀️",
+      "descricao": "Guardiã de luz que vigia a borda do sistema.",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_def",
+        "alvo": "monstros_do_bioma",
+        "valor": 200,
+        "bioma": "planetario",
+        "descricao_texto": "Seus monstros Planetários ganham 200 de DEF."
+      }
+    },
+    {
+      "id": "monstro_soberano_dos_asteroides",
+      "nome": "Soberano dos Asteroides",
+      "bioma": "planetario",
+      "tipo": "monstro",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2900,
+      "def": 2400,
+      "icone": "🌌",
+      "descricao": "Governa o cinturão de rochas e cobra tributo de todos.",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 600,
+        "descricao_texto": "Ao ser invocado, causa 600 de dano ao oponente."
+      }
+    }
+  ],
+  "fusoes": [
+    {
+      "id": "fusao_mariposa_da_seda",
+      "nome": "Mariposa-da-seda",
+      "bioma": "inseto",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1900,
+      "def": 1600,
+      "icone": "🦋",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_lagarta_da_seda",
+          "local": "campo"
+        },
+        {
+          "id": "magia_casulo_de_folha",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, você recupera 200 pontos de vida."
+      },
+      "descricao": "A lagarta completou sua metamorfose e ganhou asas brilhantes."
+    },
+    {
+      "id": "fusao_lula_gigante_das_profundezas",
+      "nome": "Lula-Gigante das Profundezas",
+      "bioma": "marinho",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2500,
+      "def": 2500,
+      "icone": "🦑",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_lula_comum",
+          "local": "campo"
+        },
+        {
+          "id": "magia_coral_da_evolucao",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_def",
+        "alvo": "monstros_do_bioma",
+        "valor": 200,
+        "bioma": "marinho",
+        "descricao_texto": "Todos os monstros marinhos do seu campo ganham 200 de DEF."
+      },
+      "descricao": "A lula evoluiu nas águas escuras e cresceu até virar um colosso."
+    },
+    {
+      "id": "fusao_colosso_orbital",
+      "nome": "Colosso Orbital",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2200,
+      "def": 2300,
+      "icone": "🛸",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_rover_de_marte",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_sonda_orbital",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Quando destruído, causa 500 de dano ao oponente."
+      },
+      "descricao": "Rover e sonda unidos formam uma estação de combate."
+    },
+    {
+      "id": "fusao_cavaleiro_de_aco",
+      "nome": "Cavaleiro de Aço",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2200,
+      "def": 2100,
+      "icone": "🛡️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_aprendiz_de_espada",
+          "local": "campo"
+        },
+        {
+          "id": "equip_espada_de_ferro",
+          "local": "mao_ou_zona_magias"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "proprio_monstro",
+        "valor": 200,
+        "descricao_texto": "Este monstro ganha 200 de ATK permanente."
+      },
+      "descricao": "O aprendiz forjou sua própria armadura e se tornou um cavaleiro."
+    },
+    {
+      "id": "fusao_leviata_do_abismo",
+      "nome": "Leviatã do Abismo",
+      "bioma": "marinho",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2400,
+      "def": 2200,
+      "icone": "🦕",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_lula_comum",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_peixe_espada",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 200,
+        "bioma": "marinho",
+        "descricao_texto": "Seus monstros Marinhos ganham 200 de ATK."
+      },
+      "condicao_especial": {
+        "tipo": "campo_ativo",
+        "id": "campo_mar_de_europa",
+        "descricao_texto": "a carta de campo Mar de Europa precisa estar ativa."
+      },
+      "descricao": "Uma serpente das profundezas que só desperta nas águas geladas de Europa."
+    },
+    {
+      "id": "fusao_praga_voraz",
+      "nome": "Praga Voraz",
+      "bioma": "inseto",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2300,
+      "def": 1900,
+      "icone": "🦗",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_besouro_blindado",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_lagarta_da_seda",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_invocar",
+        "acao": "descartar_carta",
+        "alvo": "oponente",
+        "valor": 2,
+        "descricao_texto": "Ao ser invocada, o oponente descarta 2 cartas da mão."
+      },
+      "condicao_especial": {
+        "tipo": "turno_minimo",
+        "valor": 8,
+        "descricao_texto": "só pode ser feita a partir do turno 8."
+      },
+      "descricao": "Um enxame que só se forma quando o duelo já está avançado."
+    },
+    {
+      "id": "fusao_oraculo_estelar",
+      "nome": "Oráculo Estelar",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2600,
+      "def": 2500,
+      "icone": "🔮",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_golem_lunar",
+          "local": "campo"
+        },
+        {
+          "id": "equip_cristal_estelar",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, você recupera 200 PV."
+      },
+      "condicao_especial": {
+        "tipo": "pv_minimo",
+        "valor": 6000,
+        "descricao_texto": "você precisa ter pelo menos 6000 PV."
+      },
+      "descricao": "Um golem iluminado por cristais, que só acorda diante de quem está em plena serenidade."
+    },
+    {
+      "id": "fusao_arquimago_da_torre",
+      "nome": "Arquimago da Torre",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2300,
+      "def": 1900,
+      "icone": "🪄",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_mago_da_torre",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_curandeira_do_templo",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, causa 200 de dano ao oponente."
+      },
+      "descricao": "Quando a cura e a magia se unem, nasce o maior sábio da torre."
+    },
+    {
+      "id": "fusao_viuva_imperial",
+      "nome": "Viúva Imperial",
+      "bioma": "inseto",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2300,
+      "def": 2000,
+      "icone": "🕸️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_aranha_das_dunas",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_escorpiao_das_dunas",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 400,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 400 de dano ao oponente."
+      },
+      "descricao": "Soberana do deserto: seda, veneno e paciência."
+    },
+    {
+      "id": "fusao_enguia_tempestade",
+      "nome": "Enguia da Tempestade",
+      "bioma": "marinho",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2300,
+      "def": 2000,
+      "icone": "🌩️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_agua_viva_eletrica",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_peixe_espada",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Na fase standby, causa 300 de dano ao oponente."
+      },
+      "descricao": "Só desperta quando o mar já levou muita coisa para o fundo.",
+      "condicao_especial": {
+        "tipo": "cemiterio_minimo",
+        "valor": 3,
+        "descricao_texto": "seu cemitério precisa ter 3 ou mais cartas."
+      }
+    },
+    {
+      "id": "fusao_eclipse_eterno",
+      "nome": "Eclipse Eterno",
+      "bioma": "planetario",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2900,
+      "def": 2600,
+      "icone": "🌑",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_cometa_errante",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_sentinela_solar",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 300,
+        "bioma": "planetario",
+        "descricao_texto": "Seus monstros Planetários ganham 300 de ATK."
+      },
+      "descricao": "O dia em que o sol parou para ver a batalha.",
+      "condicao_especial": {
+        "tipo": "turno_minimo",
+        "valor": 8,
+        "descricao_texto": "o duelo precisa estar no turno 8 ou depois."
+      }
+    }
+  ],
+  "magias": [
+    {
+      "id": "magia_casulo_de_folha",
+      "nome": "Casulo de Folha",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Recupera 300 pontos de vida. Também serve de material para a Mariposa-da-seda."
+      },
+      "descricao": "Um casulo macio feito de folhas, ideal para uma metamorfose.",
+      "icone": "🍃"
+    },
+    {
+      "id": "magia_coral_da_evolucao",
+      "nome": "Coral da Evolução",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Recupera 300 pontos de vida. Também serve de material para a Lula-Gigante das Profundezas."
+      },
+      "descricao": "Um coral ancestral que guarda o segredo da evolução marinha.",
+      "icone": "🪸"
+    },
+    {
+      "id": "magia_pocao_de_cura",
+      "nome": "Poção de Cura",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 1000,
+        "descricao_texto": "Recupera 1000 pontos de vida."
+      },
+      "descricao": "Um líquido vermelho que restaura as forças.",
+      "icone": "🧪"
+    },
+    {
+      "id": "magia_chuva_de_meteoros",
+      "nome": "Chuva de Meteoros",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 800,
+        "descricao_texto": "Causa 800 de dano ao oponente."
+      },
+      "descricao": "Rochas flamejantes caem do céu.",
+      "icone": "☄️"
+    },
+    {
+      "id": "magia_sabedoria_antiga",
+      "nome": "Sabedoria Antiga",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 2,
+        "descricao_texto": "Compre 2 cartas."
+      },
+      "descricao": "Pergaminhos esquecidos revelam novos caminhos.",
+      "icone": "📜"
+    },
+    {
+      "id": "magia_erupcao_de_luz",
+      "nome": "Erupção de Luz",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "destruir_monstro",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "Destrói 1 monstro do oponente."
+      },
+      "descricao": "Um clarão intenso que consome tudo à frente.",
+      "icone": "🌟"
+    },
+    {
+      "id": "magia_chamado_do_cemiterio",
+      "nome": "Chamado do Cemitério",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "reviver_monstro",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Traz de volta o monstro comum mais forte do seu cemitério."
+      },
+      "descricao": "Uma voz antiga chama os caídos de volta ao campo.",
+      "icone": "⚰️"
+    },
+    {
+      "id": "magia_vento_gelado",
+      "nome": "Vento Gélido",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "descartar_carta",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "O oponente descarta 1 carta da mão."
+      },
+      "descricao": "Um sopro frio que arranca cartas das mãos do inimigo.",
+      "icone": "❄️"
+    },
+    {
+      "id": "magia_nevoa_enfraquecedora",
+      "nome": "Névoa Enfraquecedora",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_atk",
+        "alvo": "monstros_oponente",
+        "valor": -400,
+        "descricao_texto": "Os monstros do oponente perdem 400 de ATK."
+      },
+      "descricao": "Uma névoa espessa que tira a força de quem a respira.",
+      "icone": "🌫️"
+    },
+    {
+      "id": "magia_grito_de_guerra",
+      "nome": "Grito de Guerra",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_atk",
+        "alvo": "todos_monstros",
+        "valor": 300,
+        "descricao_texto": "Seus monstros ganham 300 de ATK."
+      },
+      "descricao": "Um brado que acende o ânimo de todo o exército.",
+      "icone": "📣"
+    },
+    {
+      "id": "magia_terremoto_global",
+      "nome": "Terremoto Global",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "destruir_monstro",
+        "alvo": "todos_monstros",
+        "valor": 1,
+        "descricao_texto": "Destrói todos os monstros em campo, dos dois lados."
+      },
+      "descricao": "O chão se abre e engole todas as criaturas, amigas ou inimigas.",
+      "icone": "🌋"
+    },
+    {
+      "id": "magia_visao_do_futuro",
+      "nome": "Visão do Futuro",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Compre 1 carta."
+      },
+      "descricao": "Um relance do que ainda vai acontecer.",
+      "icone": "👁️"
+    },
+    {
+      "id": "magia_escudo_estelar",
+      "nome": "Escudo Estelar",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_def",
+        "alvo": "todos_monstros",
+        "valor": 400,
+        "descricao_texto": "Todos os monstros em campo ganham 400 de DEF."
+      },
+      "descricao": "Uma cúpula de luz cobre o campo inteiro.",
+      "icone": "🌐"
+    },
+    {
+      "id": "magia_furia_da_batalha",
+      "nome": "Fúria da Batalha",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_atk",
+        "alvo": "todos_monstros",
+        "valor": 500,
+        "descricao_texto": "Todos os monstros em campo ganham 500 de ATK."
+      },
+      "descricao": "O ar esquenta e ninguém quer recuar.",
+      "icone": "🔥"
+    },
+    {
+      "id": "magia_bencao_do_templo",
+      "nome": "Bênção do Templo",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 1500,
+        "descricao_texto": "Você recupera 1500 PV."
+      },
+      "descricao": "Os sinos tocam e as feridas se fecham.",
+      "icone": "⛪"
+    }
+  ],
+  "equipamentos": [
+    {
+      "id": "equip_espada_de_ferro",
+      "nome": "Espada de Ferro",
+      "tipo": "equipamento",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 500,
+        "descricao_texto": "O monstro equipado ganha 500 de ATK."
+      },
+      "descricao": "Lâmina simples, mas muito bem forjada.",
+      "icone": "🗡️"
+    },
+    {
+      "id": "equip_escudo_de_carapaca",
+      "nome": "Escudo de Carapaça",
+      "tipo": "equipamento",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 500,
+        "descricao_texto": "O monstro equipado ganha 500 de DEF."
+      },
+      "descricao": "Feito com o casco de um besouro gigante.",
+      "icone": "🛡️"
+    },
+    {
+      "id": "equip_armadura_de_coral",
+      "nome": "Armadura de Coral",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 400,
+        "descricao_texto": "O monstro equipado ganha 400 de DEF."
+      },
+      "descricao": "Proteção leve e resistente tirada do fundo do mar.",
+      "icone": "🦀"
+    },
+    {
+      "id": "equip_cristal_estelar",
+      "nome": "Cristal Estelar",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 300,
+        "descricao_texto": "O monstro equipado ganha 300 de ATK."
+      },
+      "descricao": "Fragmento de uma estrela cadente que pulsa com energia.",
+      "icone": "💎"
+    },
+    {
+      "id": "equip_lanca_ancestral",
+      "nome": "Lança Ancestral",
+      "tipo": "equipamento",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 700,
+        "descricao_texto": "O monstro equipado ganha 700 de ATK."
+      },
+      "descricao": "Forjada antes de existirem os reinos.",
+      "icone": "🔱"
+    },
+    {
+      "id": "equip_manto_de_estrelas",
+      "nome": "Manto de Estrelas",
+      "tipo": "equipamento",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 600,
+        "descricao_texto": "O monstro equipado ganha 600 de DEF."
+      },
+      "descricao": "Tecido com a poeira de mil noites.",
+      "icone": "🧥"
+    }
+  ],
+  "armadilhas": [
+    {
+      "id": "armadilha_fosso_de_areia",
+      "nome": "Fosso de Areia",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "destruir_monstro",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "Destrói o monstro atacante do oponente."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "descricao": "O chão cede sob os pés do invasor.",
+      "icone": "🕳️"
+    },
+    {
+      "id": "armadilha_mare_curativa",
+      "nome": "Maré Curativa",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 800,
+        "descricao_texto": "Recupera 800 pontos de vida."
+      },
+      "condicao_ativacao": "Quando você sofrer dano de batalha.",
+      "descricao": "Uma onda gentil que cura as feridas.",
+      "icone": "🌊"
+    },
+    {
+      "id": "armadilha_chuva_de_espinhos",
+      "nome": "Chuva de Espinhos",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 600,
+        "descricao_texto": "Causa 600 de dano ao oponente."
+      },
+      "condicao_ativacao": "Quando o oponente invocar um monstro.",
+      "descricao": "Espinhos surgem do chão de todas as direções.",
+      "icone": "🌵"
+    },
+    {
+      "id": "armadilha_muralha_de_espelhos",
+      "nome": "Muralha de Espelhos",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "negar_ataque",
+        "alvo": "oponente",
+        "valor": 0,
+        "descricao_texto": "Anula o ataque declarado."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "evento_ativacao": "ataque_declarado",
+      "descricao": "Uma parede de vidro que devolve o golpe ao vazio.",
+      "icone": "🪞"
+    },
+    {
+      "id": "armadilha_selo_arcano",
+      "nome": "Selo Arcano",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "negar_magia",
+        "alvo": "oponente",
+        "valor": 0,
+        "descricao_texto": "Anula a magia que o oponente acabou de ativar."
+      },
+      "condicao_ativacao": "Quando o oponente ativar uma magia.",
+      "evento_ativacao": "ativacao_magia",
+      "descricao": "Um símbolo escondido que sufoca qualquer feitiço.",
+      "icone": "🔮"
+    },
+    {
+      "id": "armadilha_laco_de_captura",
+      "nome": "Laço de Captura",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "destruir_monstro",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "Destrói o monstro que acabou de ser criado por fusão."
+      },
+      "condicao_ativacao": "Quando o oponente fizer uma fusão.",
+      "evento_ativacao": "fusao",
+      "descricao": "Uma rede de energia que prende criaturas recém-nascidas.",
+      "icone": "🪢"
+    },
+    {
+      "id": "armadilha_nevoa_sombria",
+      "nome": "Névoa Sombria",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_atk",
+        "alvo": "monstros_oponente",
+        "valor": -500,
+        "descricao_texto": "Os monstros do oponente perdem 500 de ATK."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "evento_ativacao": "ataque_declarado",
+      "descricao": "Uma neblina escura que drena a força de quem avança.",
+      "icone": "🌑"
+    },
+    {
+      "id": "armadilha_espinhos_ocultos",
+      "nome": "Espinhos Ocultos",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Causa 500 de dano ao oponente."
+      },
+      "descricao": "O chão parecia seguro.",
+      "icone": "🦔",
+      "condicao_ativacao": "Quando o oponente invocar um monstro.",
+      "evento_ativacao": "invocacao"
+    },
+    {
+      "id": "armadilha_maldicao_da_invocacao",
+      "nome": "Maldição da Invocação",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "mod_atk",
+        "alvo": "monstros_oponente",
+        "valor": -600,
+        "descricao_texto": "Os monstros do oponente perdem 600 de ATK."
+      },
+      "descricao": "Quem chega fazendo barulho paga por isso.",
+      "icone": "👻",
+      "condicao_ativacao": "Quando o oponente invocar um monstro.",
+      "evento_ativacao": "invocacao"
+    },
+    {
+      "id": "armadilha_dreno_de_energia",
+      "nome": "Dreno de Energia",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Causa 500 de dano ao oponente."
+      },
+      "descricao": "Cada golpe devolve um pouco de força a quem apanha.",
+      "icone": "🔋",
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "evento_ativacao": "ataque_declarado"
+    }
+  ],
+  "campos": [
+    {
+      "id": "campo_mar_de_europa",
+      "nome": "Mar de Europa",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "marinho",
+          "mod_atk": 300,
+          "mod_def": -200
+        },
+        {
+          "bioma": "inseto",
+          "mod_atk": -200,
+          "mod_def": 0
+        }
+      ],
+      "descricao": "O oceano gelado sob a crosta de Europa favorece criaturas marinhas e sufoca os insetos.",
+      "icone": "🧊"
+    },
+    {
+      "id": "campo_floresta_ancestral",
+      "nome": "Floresta Ancestral",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "inseto",
+          "mod_atk": 300,
+          "mod_def": 200
+        },
+        {
+          "bioma": "marinho",
+          "mod_atk": -200,
+          "mod_def": 0
+        }
+      ],
+      "descricao": "A mata densa dá força aos insetos e enfraquece criaturas do mar.",
+      "icone": "🌳"
+    },
+    {
+      "id": "campo_cratera_de_marte",
+      "nome": "Cratera de Marte",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "planetario",
+          "mod_atk": 400,
+          "mod_def": 0
+        },
+        {
+          "bioma": "humano",
+          "mod_atk": -200,
+          "mod_def": -100
+        }
+      ],
+      "descricao": "O solo vermelho e hostil beneficia os seres planetários.",
+      "icone": "🔴"
+    },
+    {
+      "id": "campo_cidade_antiga",
+      "nome": "Cidade Antiga",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "humano",
+          "mod_atk": 300,
+          "mod_def": 300
+        },
+        {
+          "bioma": "inseto",
+          "mod_atk": 0,
+          "mod_def": -200
+        }
+      ],
+      "descricao": "As muralhas de pedra fortalecem os humanos que a defendem.",
+      "icone": "🏛️"
+    },
+    {
+      "id": "campo_tempestade_solar",
+      "nome": "Tempestade Solar",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "planetario",
+          "mod_atk": 300,
+          "mod_def": 200
+        },
+        {
+          "bioma": "inseto",
+          "mod_atk": -300,
+          "mod_def": 0
+        }
+      ],
+      "descricao": "Plasma incandescente varre o campo: os astros se fortalecem e os insetos queimam.",
+      "icone": "🌞"
+    }
+  ]
+}

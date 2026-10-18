@@ -1,0 +1,654 @@
+{
+  "monstros": [
+    {
+      "id": "monstro_infantaria_de_exploracao",
+      "nome": "Infantaria de Exploração",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1400,
+      "def": 1200,
+      "icone": "🪖",
+      "descricao": "Soldados treinados para abrir caminho em terreno hostil.",
+      "deck": "humanos"
+    },
+    {
+      "id": "monstro_engenheiro_de_campo",
+      "nome": "Engenheiro de Campo",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 900,
+      "def": 1300,
+      "icone": "🔧",
+      "descricao": "Conserta qualquer coisa com o que tiver na mochila.",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Ao ser invocado, você compra 1 carta."
+      }
+    },
+    {
+      "id": "monstro_piloto_de_combate",
+      "nome": "Piloto de Combate",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1500,
+      "def": 1000,
+      "icone": "🧑‍✈️",
+      "descricao": "Reflexos de aço, nervos de aço.",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "ao_destruir_oponente",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Ao destruir um monstro em batalha, causa 300 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_especialista_em_comunicacao",
+      "nome": "Especialista em Comunicação",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 2,
+      "atk": 800,
+      "def": 1400,
+      "icone": "📻",
+      "descricao": "Mantém o esquadrão sempre em contato.",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 100,
+        "bioma": "humano",
+        "descricao_texto": "Seus monstros Humanos ganham 100 de ATK."
+      }
+    },
+    {
+      "id": "monstro_atirador_de_elite",
+      "nome": "Atirador de Elite",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "rara",
+      "nivel": 4,
+      "atk": 1600,
+      "def": 1000,
+      "icone": "🎯",
+      "descricao": "Um tiro, um alvo.",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "ao_invocar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 300,
+        "descricao_texto": "Ao ser invocado, causa 300 de dano ao oponente."
+      }
+    },
+    {
+      "id": "monstro_medico_de_combate",
+      "nome": "Médico de Combate",
+      "bioma": "humano",
+      "tipo": "monstro",
+      "raridade": "comum",
+      "nivel": 3,
+      "atk": 1000,
+      "def": 1300,
+      "icone": "🩺",
+      "descricao": "Cuida dos feridos sob fogo cerrado.",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 150,
+        "descricao_texto": "Na fase standby, você recupera 150 PV."
+      }
+    }
+  ],
+  "fusoes": [
+    {
+      "id": "fusao_soldado_de_assalto_pesado",
+      "nome": "Soldado de Assalto Pesado",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1900,
+      "def": 2000,
+      "icone": "🦾",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_infantaria_de_exploracao",
+          "local": "campo"
+        },
+        {
+          "id": "equip_exoesqueleto_de_combate_pesado",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_def",
+        "alvo": "proprio_monstro",
+        "valor": 200,
+        "descricao_texto": "Ganha 200 de DEF enquanto estiver virado para cima."
+      },
+      "descricao": "A infantaria encaixada em um exoesqueleto pesado.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_mech_de_combate_tatico",
+      "nome": "Mech de Combate Tático",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2200,
+      "def": 1900,
+      "icone": "🤖",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_piloto_de_combate",
+          "local": "campo"
+        },
+        {
+          "id": "equip_modulo_de_armas_modulares",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 500,
+        "descricao_texto": "Quando destruído, causa 500 de dano ao oponente."
+      },
+      "descricao": "Piloto e armas modulares formam uma máquina de guerra.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_esquadrao_de_operacoes_especiais",
+      "nome": "Esquadrão de Operações Especiais",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1700,
+      "def": 1900,
+      "icone": "👥",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_engenheiro_de_campo",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_infantaria_de_exploracao",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "monstros_do_bioma",
+        "valor": 100,
+        "bioma": "humano",
+        "descricao_texto": "Seus monstros humanos ganham 100 de ATK."
+      },
+      "descricao": "Cooperação perfeita entre engenharia e infantaria.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_posto_de_comando_movel",
+      "nome": "Posto de Comando Móvel",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1800,
+      "def": 2100,
+      "icone": "🏕️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_especialista_em_comunicacao",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_engenheiro_de_campo",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Na fase standby, você compra 1 carta."
+      },
+      "descricao": "Uma central de rádio sobre rodas coordena a tropa.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_franco_atirador_modular",
+      "nome": "Franco-Atirador Modular",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1900,
+      "def": 1600,
+      "icone": "🎯",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_atirador_de_elite",
+          "local": "campo"
+        },
+        {
+          "id": "equip_modulo_de_armas_modulares",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 200,
+        "descricao_texto": "Na fase standby, causa 200 de dano ao oponente."
+      },
+      "descricao": "Mira térmica e canhão de precisão acoplados ao atirador.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_mech_de_lancamento_orbital",
+      "nome": "Mech de Lançamento Orbital",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2400,
+      "def": 2400,
+      "icone": "🚀",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_piloto_de_combate",
+          "local": "campo"
+        },
+        {
+          "id": "campo_base_de_lancamento_orbital",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_ser_destruido",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 700,
+        "descricao_texto": "Quando destruído, causa 700 de dano ao oponente."
+      },
+      "descricao": "Lançado de órbita direto para o campo de batalha.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_unidade_medica_blindada",
+      "nome": "Unidade Médica Blindada",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 1800,
+      "def": 2300,
+      "icone": "🚑",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_medico_de_combate",
+          "local": "campo"
+        },
+        {
+          "id": "equip_exoesqueleto_de_combate_pesado",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "standby",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 300,
+        "descricao_texto": "Na fase standby, você recupera 300 pontos de vida."
+      },
+      "descricao": "Um hospital de campanha que também aguenta tiros.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_comandante_alfa_exo",
+      "nome": "Comandante Alfa Exo",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "rara",
+      "nivel": 5,
+      "atk": 2000,
+      "def": 1700,
+      "icone": "🎖️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_infantaria_de_exploracao",
+          "local": "campo"
+        },
+        {
+          "id": "equip_modulo_de_armas_modulares",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "proprio_monstro",
+        "valor": 200,
+        "descricao_texto": "Ganha 200 de ATK enquanto estiver virado para cima."
+      },
+      "descricao": "O líder do esquadrão, armado até os dentes.",
+      "deck": "humanos"
+    },
+    {
+      "id": "fusao_legiao_de_elite",
+      "nome": "Legião de Elite",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "lendaria",
+      "nivel": 7,
+      "atk": 2700,
+      "def": 2200,
+      "icone": "🦅",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_infantaria_de_exploracao",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_piloto_de_combate",
+          "local": "campo"
+        },
+        {
+          "id": "monstro_atirador_de_elite",
+          "local": "campo"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "ao_invocar",
+        "acao": "reviver_monstro",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Ao ser invocada, traz de volta o monstro comum mais forte do seu cemitério."
+      },
+      "condicao_especial": {
+        "tipo": "cemiterio_minimo",
+        "valor": 4,
+        "descricao_texto": "você precisa ter pelo menos 4 cartas no cemitério."
+      },
+      "deck": "humanos",
+      "descricao": "Os melhores soldados, unidos em honra aos companheiros que caíram."
+    },
+    {
+      "id": "fusao_veterano_de_guerra",
+      "nome": "Veterano de Guerra",
+      "bioma": "humano",
+      "tipo": "fusao",
+      "raridade": "super_rara",
+      "nivel": 6,
+      "atk": 2400,
+      "def": 2000,
+      "icone": "🎖️",
+      "requisitos_fusao": [
+        {
+          "id": "monstro_medico_de_combate",
+          "local": "campo"
+        },
+        {
+          "id": "equip_modulo_de_armas_modulares",
+          "local": "mao"
+        }
+      ],
+      "habilidade_especial": {
+        "gatilho": "continuo",
+        "acao": "mod_atk",
+        "alvo": "proprio_monstro",
+        "valor": 300,
+        "descricao_texto": "Este monstro ganha 300 de ATK."
+      },
+      "condicao_especial": {
+        "tipo": "pv_menor_que_oponente",
+        "descricao_texto": "você precisa estar com menos PV que o oponente."
+      },
+      "deck": "humanos",
+      "descricao": "Quanto mais ferido, mais perigoso fica o velho combatente."
+    }
+  ],
+  "magias": [
+    {
+      "id": "magia_reparo_emergencial",
+      "nome": "Reparo Emergencial",
+      "tipo": "magia",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 600,
+        "descricao_texto": "Recupera 600 pontos de vida."
+      },
+      "descricao": "Suprimentos e peças de reposição lançados em campo.",
+      "deck": "humanos",
+      "icone": "🔧"
+    },
+    {
+      "id": "magia_suprimento_aereo",
+      "nome": "Suprimento Aéreo",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "comprar_carta",
+        "alvo": "jogador",
+        "valor": 2,
+        "descricao_texto": "Compre 2 cartas."
+      },
+      "descricao": "Caixas de equipamento descem de paraquedas.",
+      "deck": "humanos",
+      "icone": "📦"
+    },
+    {
+      "id": "magia_kit_de_primeiros_socorros",
+      "nome": "Kit de Primeiros Socorros",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "curar_pv",
+        "alvo": "jogador",
+        "valor": 800,
+        "descricao_texto": "Recupera 800 pontos de vida."
+      },
+      "descricao": "Resolve o problema antes que vire tragédia.",
+      "deck": "humanos",
+      "icone": "🩹"
+    },
+    {
+      "id": "magia_bombardeio_de_apoio_orbital",
+      "nome": "Bombardeio de Apoio Orbital",
+      "tipo": "magia",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 800,
+        "descricao_texto": "Causa 800 de dano ao oponente."
+      },
+      "descricao": "Um satélite de combate abre fogo do espaço.",
+      "deck": "humanos",
+      "icone": "🚀"
+    },
+    {
+      "id": "magia_chamado_de_reforcos",
+      "nome": "Chamado de Reforços",
+      "tipo": "magia",
+      "raridade": "super_rara",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "reviver_monstro",
+        "alvo": "jogador",
+        "valor": 1,
+        "descricao_texto": "Traz de volta o monstro comum mais forte do seu cemitério."
+      },
+      "descricao": "O rádio crepita e o esquadrão responde.",
+      "icone": "🪖"
+    }
+  ],
+  "equipamentos": [
+    {
+      "id": "equip_exoesqueleto_de_combate_pesado",
+      "nome": "Exoesqueleto de Combate Pesado",
+      "tipo": "equipamento",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 500,
+        "descricao_texto": "O monstro equipado ganha 500 de DEF. Também serve de material para fusões humanas."
+      },
+      "descricao": "Servomotores que carregam o peso da armadura.",
+      "deck": "humanos",
+      "icone": "🦾"
+    },
+    {
+      "id": "equip_modulo_de_armas_modulares",
+      "nome": "Módulo de Armas Modulares",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 400,
+        "descricao_texto": "O monstro equipado ganha 400 de ATK. Também serve de material para fusões humanas."
+      },
+      "descricao": "Canhões e lâminas que se encaixam em segundos.",
+      "deck": "humanos",
+      "icone": "🔫"
+    },
+    {
+      "id": "equip_colete_balistico_reforcado",
+      "nome": "Colete Balístico Reforçado",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_def",
+        "alvo": "monstro_equipado",
+        "valor": 400,
+        "descricao_texto": "O monstro equipado ganha 400 de DEF."
+      },
+      "descricao": "Fibras de cerâmica que param projéteis.",
+      "deck": "humanos",
+      "icone": "🦺"
+    },
+    {
+      "id": "equip_mira_termica",
+      "nome": "Mira Térmica",
+      "tipo": "equipamento",
+      "raridade": "comum",
+      "efeito": {
+        "gatilho": "ao_equipar",
+        "acao": "mod_atk",
+        "alvo": "monstro_equipado",
+        "valor": 300,
+        "descricao_texto": "O monstro equipado ganha 300 de ATK."
+      },
+      "descricao": "Enxerga o calor do inimigo através da fumaça.",
+      "deck": "humanos",
+      "icone": "🎯"
+    }
+  ],
+  "armadilhas": [
+    {
+      "id": "armadilha_campo_minado",
+      "nome": "Campo Minado",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "destruir_monstro",
+        "alvo": "oponente",
+        "valor": 1,
+        "descricao_texto": "Destrói o monstro atacante do oponente."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "descricao": "Enterradas na areia, esperam o primeiro passo em falso.",
+      "deck": "humanos",
+      "icone": "💣"
+    },
+    {
+      "id": "armadilha_emboscada_de_esquadrao",
+      "nome": "Emboscada de Esquadrão",
+      "tipo": "armadilha",
+      "raridade": "rara",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "causar_dano_pv",
+        "alvo": "oponente",
+        "valor": 600,
+        "descricao_texto": "Causa 600 de dano ao oponente."
+      },
+      "condicao_ativacao": "Quando o oponente invocar um monstro.",
+      "descricao": "O esquadrão abre fogo de posições escondidas.",
+      "deck": "humanos",
+      "icone": "👥"
+    },
+    {
+      "id": "armadilha_barreira_de_energia",
+      "nome": "Barreira de Energia",
+      "tipo": "armadilha",
+      "raridade": "super_rara",
+      "deck": "humanos",
+      "efeito": {
+        "gatilho": "ao_ativar",
+        "acao": "negar_ataque",
+        "alvo": "oponente",
+        "valor": 0,
+        "descricao_texto": "Anula o ataque declarado."
+      },
+      "condicao_ativacao": "Quando um monstro do oponente declarar um ataque.",
+      "evento_ativacao": "ataque_declarado",
+      "descricao": "Um escudo de plasma erguido num piscar de olhos.",
+      "icone": "⚡"
+    }
+  ],
+  "campos": [
+    {
+      "id": "campo_base_de_lancamento_orbital",
+      "nome": "Base de Lançamento Orbital",
+      "tipo": "campo",
+      "raridade": "rara",
+      "modificadores_globais": [
+        {
+          "bioma": "humano",
+          "mod_atk": 300,
+          "mod_def": 0
+        }
+      ],
+      "descricao": "A base fornece suporte logístico e apoio orbital às tropas humanas.",
+      "deck": "humanos",
+      "icone": "🛰️"
+    }
+  ]
+}
